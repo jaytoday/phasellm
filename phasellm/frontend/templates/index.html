@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8" />
+  <title>PhaseLLM</title>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='phasellm.css')}}" />
+</head>
+<body>
+
+<h1>Model Exploration</h1>
+
+<form>
+    <textarea id="model_input" placeholder="Say something."></textarea>
+    <br/>
+    <button type="button" id="button_chat" onclick="javascript:complete_chat();">Complete Chat</button>
+    <button type="button" id="button_complete" onclick="javascript:complete_text();">Complete Text</button>
+</form>
+
+<hr>
+
+<div id="model_outputs"></div>
+
+<script>
+
+function complete_chat() {
+
+    var input_text = document.getElementById("model_input").value;
+    var data = {"input":input_text};
+
+    const response = fetch("chat_completion", {
+        method: "POST",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data),
+    })
+    .then(response=>response.json())
+    .then(data=>{ 
+        var html_out = "";
+        for(var i = 0; i < data["outputs"].length; i++) {
+            var output_from_model = data["outputs"][i]["content"];
+            output_from_model.replace("\n", "<br/>");
+            html_out += `<div class='output'><h2>${data["outputs"][i]["model"]}</h2><p>${output_from_model}</p></div>`
+        }
+        document.getElementById("model_outputs").innerHTML = html_out;
+    })
+    
+}
+
+function complete_text() {
+    var input_text = document.getElementById("model_input").value;
+    var data = {"input":input_text};
+
+    const response = fetch("text_completion", {
+        method: "POST",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data),
+    }).then(response=>response.json())
+    .then(data=>{ 
+        var html_out = "";
+        for(var i = 0; i < data["outputs"].length; i++) {
+            var output_from_model = data["outputs"][i]["content"];
+            output_from_model.replace("\n", "<br/>");
+            html_out += `<div class='output'><h2>${data["outputs"][i]["model"]}</h2><p>${output_from_model}</p></div>`
+        }
+        document.getElementById("model_outputs").innerHTML = html_out;
+    });
+}
+
+</script>
+
+</body>
+</html>
