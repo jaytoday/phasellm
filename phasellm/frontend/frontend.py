@@ -57,8 +57,8 @@ def index():
     """
     return render_template('index.html')
 
-def run(port=5000):
+def run(host="127.0.0.1", port=5000):
     """
     Launches a local web server for interfacing with PhaseLLM. This is meant to be for testing purposes only.
     """
-    APP.run(port=port)
+    APP.run(host=host, port=port)
