@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="two-col-container">
+
+    <div id="left-menu">
+        <span id="navlogo">PhaseLLM</span>
+        <span id="navlogo_sub">EVALUATION</span>
+        <a class="navlink" href="/"><span class="navicon">🏠</span>Home</a>
+        <a class="navlink" href="/chats"><span class="navicon">💬</span>Chat Reviews</a>
+        <a class="navlink" href="/view_chat"><span class="navicon">📖</span>New Chat</a>
+        <a class="navlink" href="/import"><span class="navicon">📋</span>Paste JSON</a>
+        <a class="navlink" href="/groups"><span class="navicon">📚</span>Chat Groups</a>
+        <a class="navlink" href="/jobs"><span class="navicon">🤖</span>Create Job</a>
+        <a class="navlink" href="/about"><span class="navicon">👋</span>About Us</a>
+    </div>
+    <div id="main-content">
+        <div class="two-row-container">
+            <div class="two-row-top-row">
+                <p class='content-title'>{{ contenttitle|default:"LLM Evaluator" }}</p>
+                {% block bodycontent %}
+                {% endblock %}
+            </div>
+            <div class="two-row-bottom-row">
+                <p class='content-title'>{{ contenttitle2 }}</p>
+                {% block bodycontent2 %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

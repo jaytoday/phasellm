@@ -1,7 +1,0 @@
-phasellm
-scikit-learn
-pandas
-numpy
-scipy
-statsmodels
-python-dotenv

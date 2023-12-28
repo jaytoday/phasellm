@@ -4,6 +4,7 @@ Large language model evaluation and workflow framework from [Phase AI](https://p
 
 - [Follow us on Twitter](https://twitter.com/phasellm) for updates.
 - [Star us on GitHub](https://github.com/wgryc/phasellm).
+- [Read the Docs](https://phasellm.readthedocs.io/en/latest/autoapi/phasellm/index.html) -- Module reference. Tutorials and code examples are below.
 
 ## Installation
 
@@ -13,7 +14,9 @@ You can install PhaseLLM via pip:
 pip install phasellm
 ```
 
-Installing from PyPI does not download the sample demos and products in the `demos-and-products` folder. Clone this repository and follow instructions in the `README.md` file in each product folder to run those.
+Installing from PyPI does not include libraries for running LLMs locally. Please run `pip install phasellm[complete]` if you plan on using LLMs locally (e.g., our `DollyWrapper`).
+
+Sample demos and products are in the `demos-and-products` folder. Clone this repository and follow instructions in the `README.md` file in each product folder to run those.
 
 ## Introduction
 
@@ -51,10 +54,10 @@ cohere_api_key = os.getenv("COHERE_API_KEY")
 We're going to set up the *Evaluator*, which takes two LLM model outputs and decides which one is better for the objective at hand.
 
 ```python
-from phasellm.eval import GPT35Evaluator
+from phasellm.eval import GPTEvaluator
 
-# We'll use GPT-3.5 as the evaluator.
-e = GPT35Evaluator(openai_api_key)
+# We'll use GPT-3.5 as the evaluator (default for GPTEvaluator).
+e = GPTEvaluator(openai_api_key)
 ```
 
 Now it's time to set up the experiment. In this case, we'll set up an `objective` which describes what we're trying to achieve with our chatbot. We'll also provide 5 examples of starting chats that we've seen with our users.

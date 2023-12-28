@@ -1,0 +1,213 @@
+/**
+ * DEFAULT AND UNIVERSAL VALUES
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+:root {
+    --standard-margin-spacing-text: 20px;
+    --internal-standard-padding: 5px;
+    --standard-border-radius: 5px;
+    --lightgray-borders-backgrounds: rgb(235, 235, 235);
+}
+
+b {
+    font-weight: 900;
+}
+
+ul {
+    margin-left: var(--standard-margin-spacing-text);
+}
+
+a {
+    text-decoration: none;
+    color: #4682B4;
+    font-weight: 500;
+}
+
+/**
+ * TWO COLUMN CONTAINER TEST
+ */
+
+.two-col-content-container {
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    column-gap: calc(3*var(--internal-standard-padding));
+    height: 100%;
+    overflow: hidden;
+}
+
+.two-col-content-left {
+    background-color: white;
+    overflow: auto;
+    padding: calc(2*var(--internal-standard-padding));
+}
+
+.two-col-content-right {
+    background-color: white;
+    overflow: auto;
+    padding: calc(2*var(--internal-standard-padding));
+}
+
+/**
+ * TWO ROW CONTAINER TEST
+ */
+
+.two-row-container {
+    display: grid;
+    grid-template-rows: auto auto;
+    row-gap: var(--internal-standard-padding);
+    height: 100%;
+}
+
+.two-row-top-row {
+    background-color: white;
+    padding-bottom: calc(3*var(--internal-standard-padding));
+    border-bottom: 1px solid var(--lightgray-borders-backgrounds);
+}
+
+.two-row-bottom-row {
+    background-color: white;
+}
+
+/**
+ * EVERYTHING ELSE
+ */
+
+.two-col-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+#left-menu {
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+    padding: 15px;
+    border-right: 1px solid lightgray;
+}
+
+#navlogo {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: block;
+}
+
+#navlogo_sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    display: block;
+    color: gray;
+}
+
+.navlink {
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-weight: 100;
+}
+
+.navlink:first-of-type {
+    margin-top: 25px;
+}
+
+.navlink .navicon {
+    margin-right: 10px;
+}
+
+#main-content {
+    height: 100vh;
+    background-color: white;
+    overflow: auto;
+    padding: 15px;
+}
+
+.content-title {
+    font-weight: 200;
+    font-size: 25px;
+    padding-bottom: var(--standard-margin-spacing-text);
+}
+
+input,
+textarea,
+.formfield {
+    margin: 0 0 var(--standard-margin-spacing-text) 0;
+    padding: var(--internal-standard-padding);
+    border-radius: var(--standard-border-radius);
+    border: 1px solid lightgray;
+}
+
+.formfield-hover {
+    cursor: pointer;
+}
+
+.formfield-hover:hover {
+    background-color: var(--lightgray-borders-backgrounds);
+}
+
+.error_message {
+    color: crimson;
+}
+
+.job_info_container {
+    padding: calc(2*var(--internal-standard-padding));
+    border-radius: var(--standard-border-radius);
+    background-color: var(--lightgray-borders-backgrounds);
+    margin: var(--internal-standard-padding) 0 var(--internal-standard-padding) 0;
+    display: grid;
+    grid-template-columns: 33% 33% 1fr;
+}
+
+.job_info_container div {
+    margin-right: var(--internal-standard-padding);
+}
+
+.jobtitle {
+    font-weight: 900;
+    margin: calc(2*var(--internal-standard-padding)) 0 calc(2*var(--internal-standard-padding)) 0;
+}
+
+.general-list-container {
+    padding: calc(2*var(--internal-standard-padding));
+    border-radius: var(--standard-border-radius);
+    background-color: var(--lightgray-borders-backgrounds);
+    margin: var(--internal-standard-padding) 0 var(--internal-standard-padding) 0;
+}
+
+.tag-label-green {
+    display: inline-block;
+    padding: var(--internal-standard-padding);
+    border-radius: var(--standard-border-radius);
+    background-color: #2E8B57;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.tag-label-blue {
+    display: inline-block;
+    padding: var(--internal-standard-padding);
+    border-radius: var(--standard-border-radius);
+    background-color: #4682B4;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.delete-icon {
+    margin: 0 var(--internal-standard-padding) 0 var(--internal-standard-padding);
+    cursor: pointer;
+}

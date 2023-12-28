@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# MacOS
+.DS_Store
+
 # Distribution / packaging
 .Python
 build/
@@ -110,6 +113,9 @@ ENV/
 env.bak/
 venv.bak/
 
+# Jetbrains IDEs
+.idea
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -127,3 +133,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Workspaces
+/workspace
+
+# Scratch directories
+.tmp
